@@ -1,3 +1,5 @@
+package pages;
+
 import com.codeborne.selenide.SelenideElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,16 +21,15 @@ public class LoginPage {
     private final static String firstName;
     private final static String lastName;
     private final static String postalCode;
-
+    private final static String incorrectPassword = "qwerty";
     private final SelenideElement loginField = $(By.id("user-name"));
+
     private final SelenideElement passwordField = $(By.id("password"));
     private final SelenideElement loginButton = $(By.id("login-button"));
     private final SelenideElement firstNameField = $(By.id("first-name"));
     private final SelenideElement lastNameField = $(By.id("last-name"));
     private final SelenideElement postalCodeField = $(By.id("postal-code"));
     private final SelenideElement continueButton = $(By.id("continue"));
-
-
     static {
         Properties property = new Properties();
         try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/config.properties")) {
@@ -62,4 +63,20 @@ public class LoginPage {
         open("https://www.saucedemo.com/");
     }
 
+    public void inputLogin(String text) {
+        this.loginField.val(text);
+    }
+
+    public void inputPassword(String text){
+        this.passwordField.val(text);
+    }
+
+
+    public static String getLogin() {
+        return login;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
 }

@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import pages.MainPage;
+
+import java.io.IOException;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SaucedemoTest extends BeforeAndAfter {

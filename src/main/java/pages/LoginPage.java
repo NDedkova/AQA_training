@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -30,6 +31,7 @@ public class LoginPage {
     private final SelenideElement lastNameField = $(By.id("last-name"));
     private final SelenideElement postalCodeField = $(By.id("postal-code"));
     private final SelenideElement continueButton = $(By.id("continue"));
+
     static {
         Properties property = new Properties();
         try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/config.properties")) {
@@ -45,6 +47,7 @@ public class LoginPage {
         postalCode = property.getProperty("test-user.postalcode");
     }
 
+    @Step("Login")
     public void login() {
         logger.info("Open main page");
         loginField.sendKeys(login);
@@ -52,6 +55,7 @@ public class LoginPage {
         loginButton.click();
     }
 
+    @Step("Fill in user")
     public void fillInUser() {
         firstNameField.sendKeys(firstName);
         lastNameField.sendKeys(lastName);
@@ -59,23 +63,28 @@ public class LoginPage {
         continueButton.click();
     }
 
+    @Step("Login page open")
     public void loginPageOpen() {
         open("https://www.saucedemo.com/");
     }
 
+    @Step("Input login")
     public void inputLogin(String text) {
         this.loginField.val(text);
     }
 
-    public void inputPassword(String text){
+    @Step("Input password")
+    public void inputPassword(String text) {
         this.passwordField.val(text);
     }
 
 
+    @Step("Get login")
     public static String getLogin() {
         return login;
     }
 
+    @Step("Get password")
     public static String getPassword() {
         return password;
     }

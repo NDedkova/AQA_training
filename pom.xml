@@ -20,7 +20,11 @@
         <selenide.version>5.23.0</selenide.version>
         <cucumber>6.10.4</cucumber>
         <log4j-core.version>2.14.1</log4j-core.version>
+        <allure-junit5.version>2.13.6</allure-junit5.version>
+        <mysql-connector-java.version>8.0.21</mysql-connector-java.version>
+        <jooq.version>3.14.8</jooq.version>
 
+        <slf4j-nop.version>1.7.13</slf4j-nop.version>
     </properties>
     <build>
         <plugins>
@@ -129,7 +133,25 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
-            <version>2.13.6</version>
+            <version>${allure-junit5.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>${slf4j-nop.version}</version>
         </dependency>
 
     </dependencies>
